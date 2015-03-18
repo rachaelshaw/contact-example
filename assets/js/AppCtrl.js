@@ -12,6 +12,7 @@ angular.module('TreelineExample').controller('AppCtrl', [
         $scope.contact.errors = [];
         $scope.homepage.messageSent = false;
 
+
         // Check for errors
         if(!$scope.contact.name) {
           $scope.contact.errors.push('name');
@@ -25,16 +26,26 @@ angular.module('TreelineExample').controller('AppCtrl', [
 
         // If no errors, go ahead and submit.
         if(!$scope.contact.errors.length) {
+          // Show loading state
+          $scope.contact.syncing = true;
+
+          // Submit
           $http.post('/contact', {
             name: $scope.contact.name,
             email: $scope.contact.email,
             message: $scope.contact.message
           })
           .then(function(){
+            // Clear out form
             $scope.contact.name = '';
             $scope.contact.email = '';
             $scope.contact.message = '';
+
+            // Show thank you message
             $scope.homepage.messageSent = true;
+
+            // Clear loading state
+            $scope.contact.syncing = false;
           })
           .catch(function(err){
             console.log(err);

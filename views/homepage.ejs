@@ -15,7 +15,10 @@
             <textarea class="form-control" placeholder="Message" ng-model="contact.message"></textarea>
           </div>
           <div class="form-group">
-            <button class="btn btn-lg btn-primary" type="submit">Get In Touch</button>
+            <button class="btn btn-lg btn-primary" type="submit">
+              <span ng-hide="contact.syncing">Get In Touch</span>
+              <span ng-show="contact.syncing">Sending...</span>
+            </button>
             <span class="thank-you" ng-show="homepage.messageSent">Thank you! We'll be in touch soon.</span>
           </div>
         </form>
