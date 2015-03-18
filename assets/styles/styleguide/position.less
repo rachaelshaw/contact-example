@@ -1,0 +1,13 @@
+.position(@left: 0, @top: 0) {
+  position:absolute;
+  top: @top;
+  left: @left;
+}
+
+// Usage:  .position-center-using-margins(25px, 25px, @hoffset, @voffset);
+.position-center-using-margins(@width, @height, @hoffset, @voffset) {
+  margin-left: @hoffset - (@width / 2);
+  margin-top: @voffset - (@height / 2);
+  width: @width;
+  height:@height;
+}

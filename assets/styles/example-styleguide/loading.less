@@ -1,0 +1,65 @@
+/***********************
+* Loading Spinner Styles
+************************/
+.loader {
+  .borderBox();
+  .clearfix();
+  display: inline-block;
+  margin: auto;
+  .loading-dot {
+    border-radius: 50%;
+    background-color: @white;
+    float: left;
+    opacity: 0;
+    width: 16px;
+    height: 16px;
+    margin: 5px;
+    .fadeIn();
+    .animationDuration(1s);
+    .animationIterationCount(infinite);
+    .animationDirection(linear);
+    &.dot_1 {
+      .animationDelay(0.25s);
+    }
+    &.dot_2 {
+      .animationDelay(0.5s);
+    }
+    &.dot_3 {
+      .animationDelay(0.75s);
+    }
+    &.dot_4 {
+      .animationDelay(1s);
+    }
+  }
+
+}
+
+// class for button loading styles:
+.button-loader {
+  .loader {
+    .loading-dot {
+      width: 10px;
+      height: 10px;
+      margin: 3px;
+    }
+  }
+}
+
+.tiny-loader {
+  .loader {
+    .loading-dot {
+      width: 5px;
+      height: 5px;
+      margin: 1.5px;
+    }
+  }
+}
+
+// class for light backgrounds:
+.dk-loader {
+  .loader {
+    .loading-dot {
+      background-color: @darkGray;
+    }
+  }
+}
