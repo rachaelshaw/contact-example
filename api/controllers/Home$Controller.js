@@ -8,7 +8,9 @@ module.exports = {
             },
             fn: function(inputs, exits) {
                 return exits.respond({
-                    action: 'compiler_error'
+                    action: "display_view",
+                    view: "homepage",
+                    data: {}
                 });
             }
         }).configure(req.params.all(), {
